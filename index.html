@@ -5,21 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>PATO-PROXY</title>
     
-    <!-- แท็กไอคอนสำหรับ iOS (iPhone/iPad) -->
+    <!-- PWA Icons & Meta -->
     <link rel="apple-touch-icon" href="https://i.postimg.cc/J00FQ5Bh/file-00000000cb547206a27ed0c408e18cc2.png">
     <link rel="apple-touch-icon-precomposed" href="https://i.postimg.cc/J00FQ5Bh/file-00000000cb547206a27ed0c408e18cc2.png">
-    
-    <!-- แท็กไอคอนสำหรับ Android และ Browser ทั่วไป -->
     <link rel="shortcut icon" type="image/png" href="https://i.postimg.cc/J00FQ5Bh/file-00000000cb547206a27ed0c408e18cc2.png">
     <link rel="icon" type="image/png" href="https://i.postimg.cc/J00FQ5Bh/file-00000000cb547206a27ed0c408e18cc2.png">
-    
-    <!-- แท็กสำหรับบังคับให้ระบบจำรูปภาพ (Social & System) -->
     <meta property="og:image" content="https://i.postimg.cc/J00FQ5Bh/file-00000000cb547206a27ed0c408e18cc2.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="PATO-PROXY">
+    <meta name="theme-color" content="#16a34a">
+    <!-- Manifest จะถูกสร้างด้วย JavaScript -->
 
-    <!-- ฟอนต์ไซเบอร์จาก Google Fonts -->
+    <!-- ฟอนต์ไซเบอร์ -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&family=Chakra+Petch:ital,wght@0,400;0,600;0,700;1,400&family=Audiowide&display=swap" rel="stylesheet">
@@ -33,7 +31,6 @@
             --border:#202020;--border-g:rgba(22,163,74,.34);--soft-g:rgba(22,163,74,.11);
             --text:#f5f5f5;--muted:#9a9a9a;--muted2:#676767;--dim:#3f3f3f;
             --ok:#22c55e;--ok-soft:rgba(34,197,94,.12);--yellow:#eab308;
-            /* ฟอนต์ไซเบอร์ */
             --f-display:'Orbitron','Audiowide',sans-serif;
             --f-th:'Chakra Petch','Share Tech Mono',sans-serif;
             --f-en:'Share Tech Mono','Chakra Petch',monospace;
@@ -217,7 +214,6 @@
         .page-dashboard .panel.active{display:block}
         @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
-        /* Protection menu */
         .menu-list{display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
         .row{
             display:flex;justify-content:space-between;align-items:center;
@@ -252,116 +248,50 @@
         .btn-inject:active{transform:scale(0.96)}
         .status-text{margin-top:18px;font-size:10px;color:var(--muted2);letter-spacing:2px;text-align:center}
 
-        .note{margin-top:12px;text-align:center;color:var(--muted2);font-size:11px;line-height:1.75;overflow-wrap:anywhere}
+        .note{margin-top:12px;text-align:center;color:var(--muted2);font-size:11px;line-height:1.75}
         .foot{margin-top:15px;text-align:center;color:var(--dim);font-family:var(--f-mono);font-size:9px;letter-spacing:2px;text-transform:uppercase}
 
-        /* กล่องคัดลอก */
         .copy-box {
             background: rgba(20, 83, 45, 0.15);
             border: 1px solid rgba(34, 197, 94, 0.25);
-            border-radius: 16px;
-            padding: 14px;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-            color: #fff;
-            font-family: var(--f-mono);
-            font-size: 13px;
-            backdrop-filter: blur(5px);
+            border-radius: 16px; padding: 14px; margin-bottom: 12px;
+            display: flex; align-items: center; justify-content: space-between; gap: 10px;
+            color: #fff; font-family: var(--f-mono); font-size: 13px; backdrop-filter: blur(5px);
         }
         .copy-box .label-text {
-            flex: 1;
-            font-family: var(--f-th);
-            font-size: 12px;
-            color: #86efac;
-            line-height: 1.4;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            flex: 1; font-family: var(--f-th); font-size: 12px; color: #86efac; line-height: 1.4;
+            display: flex; align-items: center; gap: 6px;
         }
-        .copy-box .value {
-            font-family: var(--f-mono);
-            font-size: 13px;
-            font-weight: 700;
-            color: #fff;
-            margin-right: 8px;
-        }
+        .copy-box .value { font-family: var(--f-mono); font-size: 13px; font-weight: 700; color: #fff; margin-right: 8px; }
         .copy-btn-small {
             background: linear-gradient(135deg, var(--green-d), var(--green));
-            border: none;
-            color: white;
-            border-radius: 10px;
-            padding: 8px 12px;
-            font-size: 11px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.2s;
-            white-space: nowrap;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            letter-spacing: 0.5px;
+            border: none; color: white; border-radius: 10px; padding: 8px 12px;
+            font-size: 11px; font-weight: 700; cursor: pointer; transition: 0.2s; white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3); letter-spacing: 0.5px;
         }
-        .copy-btn-small:active {
-            transform: scale(0.95);
-            background: #22c55e;
-        }
+        .copy-btn-small:active { transform: scale(0.95); background: #22c55e; }
 
-        /* คู่มือ */
         .guide-box {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 18px;
-            padding: 18px;
-            margin-bottom: 24px;
-            font-size: 13px;
-            line-height: 1.7;
-            color: #ccc;
+            background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 18px; padding: 18px; margin-bottom: 24px; font-size: 13px; line-height: 1.7; color: #ccc;
         }
         .guide-box h4 {
-            font-family: var(--f-display);
-            font-size: 14px;
-            color: #fff;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            font-family: var(--f-display); font-size: 14px; color: #fff; margin-bottom: 10px;
+            letter-spacing: 1px; display: flex; align-items: center; gap: 8px;
         }
-        .guide-box a {
-            color: var(--green-b);
-            text-decoration: none;
-            font-weight: 700;
-            word-break: break-all;
-        }
-        .guide-box a:hover {
-            text-decoration: underline;
-        }
+        .guide-box a { color: var(--green-b); text-decoration: none; font-weight: 700; word-break: break-all; }
+        .guide-box a:hover { text-decoration: underline; }
 
-        /* กล่องข้อมูล Key Info */
         .info-card {
-            border: 1px solid rgba(34,197,94,.18);
-            border-radius: 16px;
-            padding: 14px;
+            border: 1px solid rgba(34,197,94,.18); border-radius: 16px; padding: 14px;
             background: rgba(20,83,45,.1);
         }
         .info-label {
-            font-size: 10px;
-            color: var(--muted2);
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            margin-bottom: 6px;
+            font-size: 10px; color: var(--muted2); letter-spacing: 1px;
+            display: flex; align-items: center; gap: 6px; margin-bottom: 6px;
         }
-        .info-value {
-            font-size: 13px;
-            font-weight: 700;
-            color: #fff;
-            line-height: 1.4;
-        }
+        .info-value { font-size: 13px; font-weight: 700; color: #fff; line-height: 1.4; }
 
-        /* Responsive */
         @media(max-width:720px){
             .corner{display:none}.page-login,.page-dashboard{padding:12px}
             .page-login .card{padding:30px 22px;border-radius:18px}
@@ -379,7 +309,6 @@
             .page-dashboard .card{padding:22px 14px}
             .page-dashboard .title{font-size:21px;letter-spacing:2px}
         }
-        @supports not (height:100svh){.page-login,.page-dashboard{min-height:100vh}}
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -399,14 +328,9 @@
                 <div class="logo-area">
                     <div class="logo-wrap">
                         <div class="logo-core">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                            </svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                         </div>
-                        <div class="logo-ring"></div>
-                        <div class="logo-ring2"></div>
-                        <div class="logo-ring3"></div>
-                        <div class="logo-ring4"></div>
+                        <div class="logo-ring"></div><div class="logo-ring2"></div><div class="logo-ring3"></div><div class="logo-ring4"></div>
                         <div class="logo-scan"></div>
                         <div class="logo-bracket tl"></div><div class="logo-bracket tr"></div><div class="logo-bracket bl"></div><div class="logo-bracket br"></div>
                         <div class="logo-glow"></div>
@@ -446,13 +370,11 @@
                             <div class="logo-core">
                                 <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                             </div>
-                            <div class="ring"></div>
-                            <div class="ring r2"></div>
-                            <div class="glow"></div>
+                            <div class="ring"></div><div class="ring r2"></div><div class="glow"></div>
                         </div>
                         <div>
                             <div class="title">PATO<span>-</span>PROXY</div>
-                            <div class="subtitle">ระบบ Proxy ยิงตัวโดนหัว • <span class="en">PATO-PROXY</span></div>
+                            <div class="subtitle">ระบบยิงตัวโดนหัวผ่าน Proxy • <span class="en">PATO PROXY</span></div>
                             <div class="mini-line"></div>
                         </div>
                     </div>
@@ -470,177 +392,99 @@
 
                     <!-- Panel Protection -->
                     <div class="panel active" id="panel-protection">
-                        <!-- คู่มือการใช้งาน -->
                         <div class="guide-box">
                             <h4>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                                </svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
                                 คู่มือ Pato Proxy
                             </h4>
                             <p style="margin-bottom:8px;">• <strong>ยิงตัวโดนหัว Proxy ios</strong></p>
-                            <p style="margin-bottom:8px;">• <strong>แอพที่ต้องใช้</strong>
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin:0 2px;">
-                                    <path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"></path>
-                                </svg>
-                                <br>
+                            <p style="margin-bottom:8px;">• <strong>แอพที่ต้องใช้</strong> 
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin:0 2px;"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"></path></svg><br>
                                 <a href="https://apps.apple.com/th/app/potatso/id1239860606?l=th" target="_blank">Potatso บน App Store</a>
                             </p>
-                            <p>• <strong>ลิ้งไฟล์ Cert CA</strong>
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin:0 2px;">
-                                    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
-                                    <polyline points="17 21 17 13 7 13 7 21"></polyline>
-                                    <polyline points="7 3 7 8 15 8"></polyline>
-                                </svg>
-                                <br>
+                            <p>• <strong>ลิ้งไฟล์ Cert CA</strong> 
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin:0 2px;"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg><br>
                                 <a href="https://www.mediafire.com/file/8pjdoyyxdjl1p6c/PATO-PROXY.pem/file" target="_blank">ดาวน์โหลด PATO-PROXY.pem</a>
                             </p>
                         </div>
 
-                        <!-- เมนู Protection เดิม -->
                         <div class="menu-list">
                             <div class="row">
                                 <div class="label-group">
-                                    <div class="icon-box">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>
-                                    </div>
+                                    <div class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg></div>
                                     <span>ยิงตัวโดนหัว</span>
                                 </div>
                                 <label class="switch"><input type="checkbox"><span class="slider"></span></label>
                             </div>
                             <div class="row">
                                 <div class="label-group">
-                                    <div class="icon-box">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                                    </div>
+                                    <div class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
                                     <span>ระบบกันแบน</span>
                                 </div>
                                 <label class="switch"><input type="checkbox"><span class="slider"></span></label>
                             </div>
                             <div class="row">
                                 <div class="label-group">
-                                    <div class="icon-box">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                                    </div>
+                                    <div class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
                                     <span>กันรหัสติดดำ</span>
                                 </div>
                                 <label class="switch"><input type="checkbox"><span class="slider"></span></label>
                             </div>
                         </div>
 
-                        <!-- กล่องคัดลอก 3 กล่อง -->
                         <div class="copy-box">
-                            <div class="label-text">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <line x1="2" y1="12" x2="22" y2="12"></line>
-                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                                </svg>
-                                Server IP<br><span style="font-size:10px;color:#aaa;">ใส่ใน Potatso</span>
-                            </div>
+                            <div class="label-text"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> Server IP<br><span style="font-size:10px;color:#aaa;">ใส่ใน Potatso</span></div>
                             <span class="value" id="serverIP">147.50.253.235</span>
                             <button class="copy-btn-small" onclick="copyText('serverIP', this)">คัดลอก</button>
                         </div>
                         <div class="copy-box">
-                            <div class="label-text">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="12" y1="5" x2="12" y2="19"></line>
-                                    <polyline points="19 12 12 19 5 12"></polyline>
-                                </svg>
-                                Port<br><span style="font-size:10px;color:#aaa;">ใส่ใน Potatso</span>
-                            </div>
+                            <div class="label-text"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg> Port<br><span style="font-size:10px;color:#aaa;">ใส่ใน Potatso</span></div>
                             <span class="value" id="portNumber">9992</span>
                             <button class="copy-btn-small" onclick="copyText('portNumber', this)">คัดลอก</button>
                         </div>
                         <div class="copy-box">
-                            <div class="label-text">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                    <polyline points="14 2 14 8 20 8"></polyline>
-                                    <line x1="16" y1="13" x2="8" y2="13"></line>
-                                    <line x1="16" y1="17" x2="8" y2="17"></line>
-                                    <polyline points="10 9 9 9 8 9"></polyline>
-                                </svg>
-                                ชื่อ<br><span style="font-size:10px;color:#aaa;">ใส่ใน Potatso</span>
-                            </div>
+                            <div class="label-text"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> ชื่อ<br><span style="font-size:10px;color:#aaa;">ใส่ใน Potatso</span></div>
                             <span class="value" id="proxyName">PATO-PROXY</span>
                             <button class="copy-btn-small" onclick="copyText('proxyName', this)">คัดลอก</button>
                         </div>
 
-                        <!-- ปุ่ม Activate System -->
                         <a href="potatso://" class="btn-inject" id="mainBtn" style="margin-top:10px;">Activate System</a>
                         <div class="status-text">ENCRYPTED CONNECTION : <span style="color:#22c55e">ON</span></div>
                     </div>
 
-                    <!-- Panel Key Info (ปรับปรุงใหม่) -->
+                    <!-- Panel Key Info -->
                     <div class="panel" id="panel-info">
                         <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:10px;">
-                            <!-- KEY (เดิม) -->
                             <div class="info-card">
-                                <div class="info-label">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
-                                    KEY
-                                </div>
+                                <div class="info-label"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg> KEY</div>
                                 <div class="info-value">pato</div>
                             </div>
-                            <!-- STATUS (เดิม) -->
                             <div class="info-card">
-                                <div class="info-label">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                                    STATUS
-                                </div>
+                                <div class="info-label"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg> STATUS</div>
                                 <div class="info-value" style="color:#22c55e;">ACTIVE</div>
                             </div>
-
-                            <!-- ใหม่ 1: HEADSHOT AIM -->
                             <div class="info-card">
-                                <div class="info-label">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-                                    HEADSHOT AIM
-                                </div>
+                                <div class="info-label"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> HEADSHOT AIM</div>
                                 <div class="info-value" style="color:#86efac;">Active (Auto)</div>
                             </div>
-
-                            <!-- ใหม่ 2: ANTI-BAN -->
                             <div class="info-card">
-                                <div class="info-label">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                                    ANTI-BAN
-                                </div>
+                                <div class="info-label"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> ANTI-BAN</div>
                                 <div class="info-value" style="color:#86efac;">Encrypted</div>
                             </div>
-
-                            <!-- ใหม่ 3: SERVER -->
                             <div class="info-card">
-                                <div class="info-label">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-                                    SERVER
-                                </div>
+                                <div class="info-label"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg> SERVER</div>
                                 <div class="info-value">Thailand</div>
                             </div>
-
-                            <!-- ใหม่ 4: SUPPORTED GAME -->
                             <div class="info-card">
-                                <div class="info-label">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="12" height="16" rx="2"/><line x1="10" y1="10" x2="14" y2="10"/><line x1="12" y1="8" x2="12" y2="12"/></svg>
-                                    SUPPORTED GAME
-                                </div>
+                                <div class="info-label"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="12" height="16" rx="2"/><line x1="10" y1="10" x2="14" y2="10"/><line x1="12" y1="8" x2="12" y2="12"/></svg> SUPPORTED GAME</div>
                                 <div class="info-value">Free Fire Max</div>
                             </div>
-
-                            <!-- ใหม่ 5: USAGE (กินเต็มแถว) -->
                             <div class="info-card" style="grid-column: span 2;">
-                                <div class="info-label">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                                    USAGE
-                                </div>
-                                <div class="info-value" style="font-size:11px; line-height:1.6;">
-                                    เปิด Potatso ก่อนเข้าเกม ตรวจสอบว่าเชื่อมต่อ Proxy แล้ว ระบบจะทำงานอัตโนมัติเมื่อเข้าเกม Free Fire Max
-                                </div>
+                                <div class="info-label"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg> USAGE</div>
+                                <div class="info-value" style="font-size:11px; line-height:1.6;">เปิด Potatso ก่อนเข้าเกม ตรวจสอบว่าเชื่อมต่อ Proxy แล้ว ระบบจะทำงานอัตโนมัติเมื่อเข้าเกม Free Fire Max</div>
                             </div>
                         </div>
-                        <div class="note">คีย์นี้ใช้สำหรับเข้าใช้งาน Proxy ยิงตัวโดนหัวของ PATO-PROXY</div>
+                        <div class="note">คีย์นี้ใช้สำหรับเข้าใช้งานระบบยิงตัวโดนหัวของ PATO-PROXY</div>
                     </div>
 
                     <div class="foot">PATO-PROXY • SECURE CHANNEL</div>
@@ -650,6 +494,30 @@
     </div>
 
     <script>
+        // สร้าง Manifest แบบ Inline และเพิ่มลงใน <head>
+        (function() {
+            const manifest = {
+                name: "PATO-PROXY",
+                short_name: "PATO",
+                description: "Thunder Protection Proxy",
+                start_url: ".",
+                display: "standalone",
+                background_color: "#050505",
+                theme_color: "#16a34a",
+                icons: [
+                    { src: "https://i.postimg.cc/J00FQ5Bh/file-00000000cb547206a27ed0c408e18cc2.png", sizes: "192x192", type: "image/png" },
+                    { src: "https://i.postimg.cc/J00FQ5Bh/file-00000000cb547206a27ed0c408e18cc2.png", sizes: "512x512", type: "image/png" }
+                ]
+            };
+            const blob = new Blob([JSON.stringify(manifest)], { type: 'application/json' });
+            const manifestURL = URL.createObjectURL(blob);
+            const link = document.createElement('link');
+            link.rel = 'manifest';
+            link.href = manifestURL;
+            document.head.appendChild(link);
+        })();
+
+        // ระบบคีย์และอื่น ๆ
         (function() {
             const loginPage = document.getElementById('loginPage');
             const dashboardPage = document.getElementById('dashboardPage');
@@ -707,6 +575,7 @@
                 });
             }
 
+            // Canvas สายฟ้า
             const canvas = document.getElementById('lightningCanvas');
             const ctx = canvas.getContext('2d');
             function resizeCanvas() {
@@ -734,29 +603,21 @@
                 ctx.stroke();
                 setTimeout(() => ctx.clearRect(0, 0, canvas.width, canvas.height), 100);
             }
-
             function thunderLoop() {
-                setTimeout(() => {
-                    drawLightning();
-                    thunderLoop();
-                }, Math.random() * 3000 + 1000);
+                setTimeout(() => { drawLightning(); thunderLoop(); }, Math.random() * 3000 + 1000);
             }
             thunderLoop();
 
             document.addEventListener('contextmenu', e => e.preventDefault());
             document.onkeydown = function(e) {
-                if (
-                    e.keyCode === 123 ||
-                    (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) ||
-                    (e.ctrlKey && e.keyCode === 85)
-                ) return false;
+                if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) || (e.ctrlKey && e.keyCode === 85)) return false;
             };
             setInterval(function() {
                 const startTime = performance.now();
                 debugger;
                 const endTime = performance.now();
                 if (endTime - startTime > 100) {
-                    document.body.innerHTML = '<div style="background:#000; color:#22c55e; height:100vh; display:flex; align-items:center; justify-content:center; font-family:sans-serif; text-align:center;"><h1>SECURITY BREACH DETECTED</h1></div>';
+                    document.body.innerHTML = '<div style="background:#000; color:#22c55e; height:100vh; display:flex; align-items:center; justify-content:center; font-family:sans-serif;"><h1>SECURITY BREACH DETECTED</h1></div>';
                 }
             }, 1000);
         })();
@@ -771,9 +632,7 @@
                     btn.innerText = originalText;
                     btn.style.background = '';
                 }, 1500);
-            }).catch(err => {
-                alert('คัดลอกไม่สำเร็จ');
-            });
+            }).catch(() => alert('คัดลอกไม่สำเร็จ'));
         }
     </script>
 </body>
