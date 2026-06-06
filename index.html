@@ -2,13 +2,28 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PATO-PROXY</title>
+    
+    <!-- แท็กไอคอนสำหรับ iOS (iPhone/iPad) -->
+    <link rel="apple-touch-icon" href="https://i.postimg.cc/J00FQ5Bh/file-00000000cb547206a27ed0c408e18cc2.png">
+    <link rel="apple-touch-icon-precomposed" href="https://i.postimg.cc/J00FQ5Bh/file-00000000cb547206a27ed0c408e18cc2.png">
+    
+    <!-- แท็กไอคอนสำหรับ Android และ Browser ทั่วไป -->
+    <link rel="shortcut icon" type="image/png" href="https://i.postimg.cc/J00FQ5Bh/file-00000000cb547206a27ed0c408e18cc2.png">
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/J00FQ5Bh/file-00000000cb547206a27ed0c408e18cc2.png">
+    
+    <!-- แท็กสำหรับบังคับให้ระบบจำรูปภาพ (Social & System) -->
+    <meta property="og:image" content="https://i.postimg.cc/J00FQ5Bh/file-00000000cb547206a27ed0c408e18cc2.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover">
-    <title>PATO PROXY iOS</title>
+    <meta name="apple-mobile-web-app-title" content="PATO-PROXY">
+
+    <!-- ฟอนต์ไซเบอร์จาก Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Kanit:wght@300;400;500;600;700;800&family=Noto+Sans+Thai:wght@300;400;500;600;700;800&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&family=Chakra+Petch:ital,wght@0,400;0,600;0,700;1,400&family=Audiowide&display=swap" rel="stylesheet">
+
     <style>
         /* ===== RESET & BASE ===== */
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -18,10 +33,11 @@
             --border:#202020;--border-g:rgba(22,163,74,.34);--soft-g:rgba(22,163,74,.11);
             --text:#f5f5f5;--muted:#9a9a9a;--muted2:#676767;--dim:#3f3f3f;
             --ok:#22c55e;--ok-soft:rgba(34,197,94,.12);--yellow:#eab308;
-            --f-th:'Kanit','Noto Sans Thai',Tahoma,sans-serif;
-            --f-en:'Inter','Kanit','Noto Sans Thai',sans-serif;
-            --f-mono:'JetBrains Mono','Kanit','Noto Sans Thai',monospace;
-            --f-display:'Orbitron','Inter','Kanit','Noto Sans Thai',sans-serif;
+            /* ฟอนต์ไซเบอร์ */
+            --f-display:'Orbitron','Audiowide',sans-serif;
+            --f-th:'Chakra Petch','Share Tech Mono',sans-serif;
+            --f-en:'Share Tech Mono','Chakra Petch',monospace;
+            --f-mono:'Share Tech Mono','JetBrains Mono',monospace;
         }
         html,body{width:100%;min-height:100%;-webkit-text-size-adjust:100%;text-size-adjust:100%}
         body{
@@ -34,6 +50,7 @@
             background-size:auto,auto,60px 60px,60px 60px;
         }
         .en{font-family:var(--f-en)}.th{font-family:var(--f-th)}.mono{font-family:var(--f-mono)}.display{font-family:var(--f-display)}
+
         /* ===== TOP LINE & CORNERS ===== */
         .top-line{
             position:fixed;top:0;left:0;right:0;height:2px;z-index:100;
@@ -105,9 +122,9 @@
         .page-login .logo-title{
             font-family:var(--f-display);font-size:28px;font-weight:800;letter-spacing:4px;
             color:#fff;text-transform:uppercase;line-height:1;
-            text-shadow:0 0 12px rgba(22,163,74,.14),0 0 26px rgba(22,163,74,.08);
+            text-shadow:0 0 12px rgba(22,163,74,.4),0 0 26px rgba(22,163,74,.2);
         }
-        .page-login .logo-title span{color:var(--green-b);text-shadow:0 0 14px rgba(34,197,94,.35),0 0 28px rgba(22,163,74,.16)}
+        .page-login .logo-title span{color:var(--green-b);text-shadow:0 0 14px rgba(34,197,94,.6),0 0 28px rgba(22,163,74,.3)}
         .page-login .logo-sub{font-family:var(--f-th);font-size:11px;color:var(--muted2);margin-top:7px;letter-spacing:.2px;text-align:center;line-height:1.65}
         .page-login .logo-sub .en{letter-spacing:1px;color:var(--muted)}
         .page-login .logo-divider{width:60px;height:1px;margin-top:16px;background:linear-gradient(90deg,transparent,var(--green-b),transparent)}
@@ -119,18 +136,14 @@
         .page-login .field{margin-bottom:15px}
         .page-login .field-label{font-family:var(--f-th);font-size:11px;color:var(--muted);margin-bottom:7px;display:flex;align-items:center;gap:8px;letter-spacing:.2px}
         .page-login .field-label svg{width:13px;height:13px;fill:none;stroke:var(--green-b);stroke-width:2;opacity:.85;flex-shrink:0}
-        .page-login .field-input,.page-login .field-select{
+        .page-login .field-input{
             width:100%;padding:13px 14px;background:var(--d3);border:1px solid var(--border);
             border-radius:11px;color:var(--text);font-family:var(--f-mono);font-size:13px;
             outline:none;transition:border-color .25s,box-shadow .25s;letter-spacing:.7px;
         }
-        .page-login .field-input:focus,.page-login .field-select:focus{
+        .page-login .field-input:focus{
             border-color:var(--green-b);box-shadow:0 0 0 3px rgba(22,163,74,.06),inset 0 0 30px rgba(22,163,74,.02);
         }
-        .page-login .field-input::placeholder{color:var(--dim);font-family:var(--f-th);font-size:12px;letter-spacing:0}
-        .page-login .field-input[readonly]{color:#f5f5f5;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.018));border-color:rgba(255,255,255,.1)}
-        .page-login .field-select{appearance:none;font-family:var(--f-th);letter-spacing:0}
-        .page-login .udid-ready .field-input[readonly]{border-color:rgba(34,197,94,.35);box-shadow:0 0 0 3px rgba(34,197,94,.05)}
         .page-login .btn-grid{display:grid;grid-template-columns:1fr;gap:10px}
         .page-login .btn{
             width:100%;border:0;border-radius:11px;padding:13px 14px;min-height:50px;
@@ -141,24 +154,14 @@
         .page-login .btn:disabled{opacity:.42;cursor:not-allowed;filter:grayscale(.35)}
         .page-login .btn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
         .page-login .btn-green{background:linear-gradient(135deg,var(--green-d),var(--green));box-shadow:0 10px 30px rgba(22,163,74,.18)}
-        .page-login .btn-dark{background:var(--d3);border:1px solid var(--border);color:#ddd}
-        .page-login .btn-ok{background:linear-gradient(135deg,#14532d,#22c55e);box-shadow:0 10px 30px rgba(34,197,94,.15)}
-        .page-login .btn:hover:not(:disabled){transform:translateY(-1px);filter:brightness(1.08)}
         .page-login .status{
-            display:block;margin-top:13px;border-radius:12px;padding:13px 14px;
+            display:flex;align-items:center;gap:8px;margin-top:13px;border-radius:12px;padding:13px 14px;
             font-family:var(--f-th);font-size:12px;line-height:1.75;border:1px solid var(--border);
             background:rgba(255,255,255,.025);overflow-wrap:anywhere;word-break:break-word;
         }
-        .page-login .status.ok{border-color:rgba(34,197,94,.28);background:rgba(34,197,94,.075);color:#bbf7d0}
-        .page-login .status.warn{border-color:rgba(234,179,8,.25);background:rgba(234,179,8,.065);color:#fde68a}
         .page-login .status.err{border-color:rgba(239,68,68,.33);background:rgba(239,68,68,.08);color:#fecaca}
-        .page-login .panel{position:relative;margin-top:14px;border:1px solid var(--border);background:rgba(255,255,255,.022);border-radius:14px;padding:15px}
-        .page-login .panel-title{font-family:var(--f-th);font-size:13px;font-weight:700;color:#fff;margin-bottom:9px}
-        .page-login .steps ol{padding-left:20px;color:#bdbdbd;font-family:var(--f-th);font-size:12px;line-height:1.9}
-        .page-login .steps b{font-family:var(--f-th);color:#fff;font-weight:700}
-        .page-login .note{margin-top:12px;color:var(--muted2);font-family:var(--f-th);font-size:11px;line-height:1.75;text-align:center}
-        .page-login .foot{margin-top:16px;text-align:center;color:var(--dim);font-family:var(--f-mono);font-size:9px;letter-spacing:2px;text-transform:uppercase}
-        .page-login .function-box{display:none}.page-login .function-box.show{display:block}.page-login .hide{display:none!important}
+        .page-login .status svg{flex-shrink:0}
+        .page-login .hide{display:none!important}
 
         /* ===== DASHBOARD PAGE ===== */
         .page-dashboard{
@@ -194,132 +197,171 @@
         .page-dashboard .glow{position:absolute;inset:16px;border-radius:50%;background:radial-gradient(circle,rgba(22,163,74,.22),transparent 70%);animation:pulse 3s ease-in-out infinite}
         @keyframes spin{to{transform:rotate(360deg)}}
         @keyframes pulse{0%,100%{opacity:.45;transform:scale(1)}50%{opacity:1;transform:scale(1.25)}}
-        .page-dashboard .title{font-family:var(--f-display);font-size:26px;font-weight:900;letter-spacing:3.5px;text-transform:uppercase;line-height:1.05}
-        .page-dashboard .title span{color:var(--green-b);text-shadow:0 0 16px rgba(34,197,94,.28)}
+        .page-dashboard .title{
+            font-family:var(--f-display);font-size:26px;font-weight:900;letter-spacing:3.5px;
+            text-transform:uppercase;line-height:1.05;
+            text-shadow:0 0 10px rgba(34,197,94,.4),0 0 20px rgba(22,163,74,.25);
+        }
+        .page-dashboard .title span{color:var(--green-b);text-shadow:0 0 16px rgba(34,197,94,.5)}
         .page-dashboard .subtitle{margin-top:7px;color:var(--muted);font-size:11px;line-height:1.65}
-        .page-dashboard .subtitle .en{letter-spacing:1.2px}
         .page-dashboard .mini-line{width:74px;height:1px;margin-top:12px;background:linear-gradient(90deg,var(--green-b),transparent)}
-        /* Tabs */
-        .page-dashboard .tabs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:18px 0;padding:5px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.025);border-radius:16px}
-        .page-dashboard .tab{border:0;border-radius:12px;min-height:46px;background:transparent;color:var(--muted);font-family:var(--f-th);font-weight:700;font-size:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;transition:.22s}
+        .page-dashboard .tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0;padding:5px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.025);border-radius:16px}
+        .page-dashboard .tab{
+            border:0;border-radius:12px;min-height:46px;background:transparent;color:var(--muted);
+            font-family:var(--f-th);font-weight:700;font-size:12px;cursor:pointer;
+            display:flex;align-items:center;justify-content:center;gap:9px;transition:.22s;
+        }
         .page-dashboard .tab svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
         .page-dashboard .tab.active{color:#fff;background:linear-gradient(135deg,rgba(20,83,45,.95),rgba(22,163,74,.9));box-shadow:0 12px 28px rgba(22,163,74,.14)}
-        .page-dashboard .tab[disabled]{opacity:.45;cursor:not-allowed}
-        /* Panels */
         .page-dashboard .panel{display:none;animation:fade .24s ease both}
         .page-dashboard .panel.active{display:block}
         @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-        /* Key Info */
-        .section-caption{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 auto 12px;max-width:690px}
-        .cap-title{font-family:var(--f-display);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#fff}
-        .cap-line{height:1px;flex:1;background:linear-gradient(90deg,rgba(34,197,94,.35),transparent)}
-        .status-pill{display:inline-flex;align-items:center;justify-content:center;min-height:26px;border-radius:999px;padding:5px 10px;font-size:10.8px;font-weight:500;line-height:1;white-space:nowrap;letter-spacing:.1px}
-        .status-pill.ok{color:#bbf7d0;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.25)}
-        .key-layout{max-width:690px;margin:0 auto}
-        .key-matrix{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-        .corner-card{position:relative;min-width:0;min-height:106px;border:1px solid rgba(255,255,255,.075);background:linear-gradient(145deg,rgba(255,255,255,.033),rgba(255,255,255,.013));border-radius:16px;padding:12px;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between}
-        .corner-card::before{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(135deg,rgba(34,197,94,.12),transparent 42%)}
-        .corner-card::after{content:'';position:absolute;width:58px;height:58px;border-radius:50%;right:-24px;top:-24px;background:radial-gradient(circle,rgba(22,163,74,.11),transparent 70%);pointer-events:none}
-        .corner-head{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
-        .corner-icon{width:32px;height:32px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(22,163,74,.1);border:1px solid rgba(34,197,94,.22);color:#86efac;flex-shrink:0}
-        .corner-icon svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-        .corner-no{font-family:var(--f-mono);font-size:9px;letter-spacing:1.8px;color:rgba(134,239,172,.7)}
-        .label{font-family:var(--f-mono);font-size:8.8px;letter-spacing:1.65px;color:var(--muted2);text-transform:uppercase;margin-bottom:6px;white-space:normal}
-        .value{font-family:var(--f-th);font-size:12.5px;color:#fff;line-height:1.45;overflow-wrap:anywhere;word-break:break-word}
-        .value.mono{font-family:var(--f-mono);font-size:10.8px;letter-spacing:.15px}
-        .corner-card .label,.corner-card .value{position:relative;z-index:1}
-        .status-value{display:inline-flex;align-items:center;width:max-content;max-width:100%;padding:5px 9px;border-radius:999px;font-size:11px!important;font-weight:500!important;line-height:1.2;white-space:nowrap;letter-spacing:.1px}
-        .status-value.ok{color:#bbf7d0;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2)}
-        .key-split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px}
-        .wide-card{position:relative;min-width:0;border:1px solid rgba(34,197,94,.18);background:linear-gradient(180deg,rgba(20,83,45,.1),rgba(255,255,255,.016));border-radius:16px;padding:12px;overflow:hidden}
-        .wide-card::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(34,197,94,.5),transparent)}
-        .wide-card .value{font-size:11.5px;line-height:1.45}.wide-card .value.mono{font-size:10.6px}
-        /* Game Select */
-        .game-select-panel{margin-top:14px;border:1px solid rgba(34,197,94,.22);background:linear-gradient(180deg,rgba(20,83,45,.13),rgba(255,255,255,.018));border-radius:18px;padding:14px}
-        .game-select-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:11px}
-        .game-select-title{font-size:14px;font-weight:900;color:#fff;line-height:1.35}
-        .game-select-sub{font-size:11.5px;color:var(--muted);line-height:1.7;margin-top:4px}
-        .game-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-        .game-grid.single{grid-template-columns:1fr}
-        .game-card{border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.025);border-radius:15px;padding:13px;text-decoration:none;color:#fff;display:flex;gap:12px;align-items:flex-start;transition:.18s;min-height:104px}
-        .game-card:hover{border-color:rgba(34,197,94,.36);background:rgba(20,83,45,.12)}
-        .game-card.active{border-color:rgba(34,197,94,.50);background:linear-gradient(135deg,rgba(20,83,45,.32),rgba(255,255,255,.025));box-shadow:0 10px 28px rgba(20,83,45,.14)}
-        .game-icon{width:42px;height:42px;border-radius:15px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;background:linear-gradient(135deg,rgba(22,163,74,.22),rgba(0,0,0,.22));border:1px solid rgba(34,197,94,.28);color:#bbf7d0}
-        .game-icon svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-        .game-info{min-width:0;flex:1}
-        .game-name{font-family:var(--f-display);font-size:15px;letter-spacing:.8px}
-        .game-desc{margin-top:5px;color:var(--muted);font-size:10.8px;line-height:1.55}
-        .game-state{margin-top:10px;border-radius:12px;padding:9px 10px;font-size:10.8px;font-weight:800;line-height:1.45;border:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.18);display:flex;gap:9px;align-items:flex-start}
-        .state-icon{width:19px;height:19px;border-radius:999px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;margin-top:1px}
-        .state-icon svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-        .game-state.ok{color:#bbf7d0;border-color:rgba(34,197,94,.24);background:rgba(34,197,94,.06)}
-        .game-state.ok .state-icon{background:rgba(34,197,94,.12);color:#86efac}
-        .game-state.saved{justify-content:center;align-items:center;text-align:center;width:100%}
-        .game-state.saved>div{width:100%}
-        .game-important-advice{margin-top:10px;border:1px solid rgba(245,158,11,.28);background:linear-gradient(135deg,rgba(245,158,11,.10),rgba(20,83,45,.10));border-radius:13px;padding:10px 11px;color:#fde68a;line-height:1.65}
-        .game-important-advice-title{font-size:11.2px;font-weight:900;color:#fff;margin-bottom:3px}
-        .game-important-advice-text{font-size:10.8px;color:#fde68a}
-        /* Setup */
-        .setup-block-title{display:flex;align-items:center;gap:8px;margin:16px 0 10px}
-        .setup-block-title span:first-child{font-family:var(--f-display);font-size:10.5px;letter-spacing:1.8px;color:#fff;text-transform:uppercase}
-        .setup-block-title span:last-child{height:1px;flex:1;background:linear-gradient(90deg,rgba(34,197,94,.32),transparent)}
-        .cert-first{margin-top:14px;border:1px solid rgba(34,197,94,.26);background:linear-gradient(180deg,rgba(20,83,45,.17),rgba(255,255,255,.018));border-radius:18px;padding:16px;position:relative;overflow:hidden}
-        .cert-first::after{content:'';position:absolute;right:-46px;top:-46px;width:140px;height:140px;background:radial-gradient(circle,rgba(34,197,94,.16),transparent 68%);pointer-events:none}
-        .cert-head{position:relative;display:flex;gap:12px;align-items:flex-start}
-        .cert-icon{width:38px;height:38px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:rgba(22,163,74,.14);border:1px solid rgba(34,197,94,.28);color:#bbf7d0;flex-shrink:0}
-        .cert-icon svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-        .cert-title{font-size:14px;font-weight:800;line-height:1.35}
-        .cert-desc{margin-top:6px;color:var(--muted);font-size:11.5px;line-height:1.75}
-        .cert-actions{position:relative;margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
-        .method-area{display:none;margin-top:16px}
-        .method-area.active{display:block}
-        .method-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-        .method-card{position:relative;border:1px solid var(--border);background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.016));border-radius:18px;padding:15px;min-height:150px;display:flex;flex-direction:column;gap:10px;overflow:hidden;cursor:pointer;transition:.22s}
-        .method-card::after{content:'';position:absolute;right:-40px;top:-40px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,rgba(22,163,74,.09),transparent 65%);pointer-events:none}
-        .method-card.hidden{display:none}
-        .method-top{display:flex;align-items:center;gap:10px}
-        .method-no{width:32px;height:32px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(22,163,74,.12);border:1px solid rgba(34,197,94,.32);font-family:var(--f-mono);font-size:11px;font-weight:800;color:#bbf7d0;flex-shrink:0}
-        .method-icon{width:32px;height:32px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);color:var(--green-b);flex-shrink:0}
-        .method-icon svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-        .method-title{font-size:13.5px;font-weight:750;line-height:1.35;overflow-wrap:anywhere}
-        .method-text{color:var(--muted);font-size:11.3px;line-height:1.68;flex:1;overflow-wrap:anywhere}
-        .method-action{min-height:38px;border-radius:11px;border:1px solid rgba(34,197,94,.24);background:rgba(20,83,45,.18);color:#fff;font-family:var(--f-th);font-weight:750;font-size:11.5px;display:flex;align-items:center;justify-content:center;text-align:center}
-        .method-card.active{border-color:rgba(34,197,94,.45);box-shadow:0 0 0 1px rgba(34,197,94,.12),0 18px 40px rgba(0,0,0,.25)}
-        .method-card.active .method-action{background:linear-gradient(135deg,var(--green-d),var(--green));border-color:transparent}
-        .method-detail{display:none;margin-top:14px;border:1px solid rgba(34,197,94,.20);background:linear-gradient(180deg,rgba(255,255,255,.028),rgba(0,0,0,.12));border-radius:18px;padding:15px}
-        .method-detail.active{display:block}
-        .method-detail-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
-        .method-detail-title{font-size:14px;font-weight:850;line-height:1.35}
-        .method-badge{font-family:var(--f-mono);font-size:9px;letter-spacing:1.4px;color:#bbf7d0;border:1px solid rgba(34,197,94,.26);background:rgba(20,83,45,.16);border-radius:999px;padding:6px 9px;white-space:nowrap}
-        .method-copy-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-        .method-copy-grid .copy-card{min-height:76px}
-        .copy-card{min-width:0;border:1px solid rgba(255,255,255,.082);background:linear-gradient(180deg,rgba(255,255,255,.042),rgba(255,255,255,.016));border-radius:15px;padding:12px 14px;position:relative;overflow:hidden;min-height:78px;display:grid;grid-template-columns:minmax(0,1fr) 78px;grid-template-areas:"label button" "value button";column-gap:12px;align-items:center}
-        .copy-card::before{content:'';position:absolute;left:0;top:10px;bottom:10px;width:2px;border-radius:10px;background:linear-gradient(180deg,var(--green-b),rgba(34,197,94,.18),transparent)}
-        .copy-card::after{content:'';position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,rgba(34,197,94,.28),transparent 58%);opacity:.72}
-        .copy-card.simple{grid-template-columns:minmax(0,1fr);grid-template-areas:"label" "value";min-height:68px}
-        .copy-card.simple .copy-value{font-size:13px;font-weight:700;letter-spacing:.35px;color:#fff}
-        .copy-label{grid-area:label;font-family:var(--f-mono);font-size:8.4px;font-weight:700;letter-spacing:1.55px;color:#8c8c8c;text-transform:uppercase;margin:0 0 4px;line-height:1.15}
-        .copy-value{grid-area:value;font-family:var(--f-mono);font-size:11.2px;font-weight:500;color:#f4f4f5;line-height:1.42;overflow-wrap:anywhere;word-break:break-word;min-width:0;max-width:100%;padding:0;letter-spacing:.15px}
-        .copy-card:nth-child(1) .copy-value,.copy-card:nth-child(2) .copy-value{font-size:13px;font-weight:700;letter-spacing:.35px;color:#fff}
-        .copy-btn{grid-area:button;position:static;border:1px solid rgba(34,197,94,.32);background:linear-gradient(135deg,rgba(20,83,45,.42),rgba(22,163,74,.18));color:#fff;border-radius:999px;min-height:34px;width:70px;padding:0 8px;font-family:var(--f-th);font-size:10.4px;font-weight:600;letter-spacing:.15px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;align-self:center;justify-self:end;box-shadow:0 8px 20px rgba(0,0,0,.2);transition:.18s}
-        .copy-btn:hover{transform:translateX(-1px);filter:brightness(1.12)}
-        .copy-btn.done{border-color:rgba(34,197,94,.38);background:linear-gradient(135deg,rgba(22,101,52,.42),rgba(34,197,94,.14));color:#bbf7d0}
-        .copy-card.simple.inline-copy{grid-template-areas:"label" "copyrow"}
-        .copy-card.simple.inline-copy .copy-row{grid-area:copyrow;display:flex;align-items:center;gap:8px;min-width:0}
-        .copy-card.simple.inline-copy .copy-value{flex:1;min-width:0}
-        .copy-inline-btn{border:1px solid rgba(34,197,94,.32);background:linear-gradient(135deg,rgba(20,83,45,.42),rgba(22,163,74,.18));color:#fff;border-radius:999px;min-height:28px;min-width:56px;padding:0 8px;font-family:var(--f-th);font-size:9.8px;font-weight:700;letter-spacing:.12px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;box-shadow:0 6px 16px rgba(0,0,0,.18);transition:.18s}
-        .copy-inline-btn:hover{transform:translateX(-1px);filter:brightness(1.12)}
-        .copy-inline-btn.done{border-color:rgba(34,197,94,.38);background:linear-gradient(135deg,rgba(22,101,52,.42),rgba(34,197,94,.14));color:#bbf7d0}
-        .btn-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
-        .page-dashboard .btn{min-height:48px;border-radius:14px;border:0;outline:0;text-decoration:none;color:#fff;font-family:var(--f-th);font-size:12.5px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:0 14px;cursor:pointer;transition:.2s;line-height:1.2;text-align:center}
-        .page-dashboard .btn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-        .btn-green{background:linear-gradient(135deg,var(--green-d),var(--green));box-shadow:0 14px 30px rgba(22,163,74,.16)}
-        .btn-dark{background:var(--card2);border:1px solid var(--border);color:#ddd}
-        .btn-ghost{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.08);color:#ddd}
-        .page-dashboard .btn:hover{transform:translateY(-1px);filter:brightness(1.08)}
+
+        /* Protection menu */
+        .menu-list{display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
+        .row{
+            display:flex;justify-content:space-between;align-items:center;
+            padding:18px 20px;background:rgba(255,255,255,0.03);border-radius:20px;
+            border:1px solid rgba(255,255,255,0.06);transition:0.3s;
+        }
+        .row:hover{border-color:rgba(34,197,94,0.3);background:rgba(255,255,255,0.05)}
+        .label-group{display:flex;align-items:center;gap:14px}
+        .icon-box{
+            width:36px;height:36px;display:flex;align-items:center;justify-content:center;
+            background:rgba(22,163,74,0.1);border-radius:12px;color:var(--green-b);
+        }
+        .row span{font-size:14px;font-weight:600;color:var(--text)}
+        .switch{position:relative;width:44px;height:24px}
+        .switch input{opacity:0;width:0;height:0}
+        .slider{
+            position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;
+            background:#252529;transition:.4s;border-radius:30px;
+        }
+        .slider:before{
+            position:absolute;content:"";height:18px;width:18px;
+            left:3px;bottom:3px;background:#ececec;transition:.4s;border-radius:50%;
+        }
+        input:checked+.slider{background:var(--green-b)}
+        input:checked+.slider:before{transform:translateX(20px);background:#fff}
+
+        .btn-inject{
+            display:block;width:100%;padding:20px;background:#fff;
+            border:none;border-radius:18px;color:#000;font-weight:800;
+            text-decoration:none;font-size:15px;text-transform:uppercase;letter-spacing:1px;transition:0.3s;
+        }
+        .btn-inject:active{transform:scale(0.96)}
+        .status-text{margin-top:18px;font-size:10px;color:var(--muted2);letter-spacing:2px;text-align:center}
+
         .note{margin-top:12px;text-align:center;color:var(--muted2);font-size:11px;line-height:1.75;overflow-wrap:anywhere}
         .foot{margin-top:15px;text-align:center;color:var(--dim);font-family:var(--f-mono);font-size:9px;letter-spacing:2px;text-transform:uppercase}
-        /* RESPONSIVE */
+
+        /* กล่องคัดลอก */
+        .copy-box {
+            background: rgba(20, 83, 45, 0.15);
+            border: 1px solid rgba(34, 197, 94, 0.25);
+            border-radius: 16px;
+            padding: 14px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            color: #fff;
+            font-family: var(--f-mono);
+            font-size: 13px;
+            backdrop-filter: blur(5px);
+        }
+        .copy-box .label-text {
+            flex: 1;
+            font-family: var(--f-th);
+            font-size: 12px;
+            color: #86efac;
+            line-height: 1.4;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .copy-box .value {
+            font-family: var(--f-mono);
+            font-size: 13px;
+            font-weight: 700;
+            color: #fff;
+            margin-right: 8px;
+        }
+        .copy-btn-small {
+            background: linear-gradient(135deg, var(--green-d), var(--green));
+            border: none;
+            color: white;
+            border-radius: 10px;
+            padding: 8px 12px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+            white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            letter-spacing: 0.5px;
+        }
+        .copy-btn-small:active {
+            transform: scale(0.95);
+            background: #22c55e;
+        }
+
+        /* คู่มือ */
+        .guide-box {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 18px;
+            padding: 18px;
+            margin-bottom: 24px;
+            font-size: 13px;
+            line-height: 1.7;
+            color: #ccc;
+        }
+        .guide-box h4 {
+            font-family: var(--f-display);
+            font-size: 14px;
+            color: #fff;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .guide-box a {
+            color: var(--green-b);
+            text-decoration: none;
+            font-weight: 700;
+            word-break: break-all;
+        }
+        .guide-box a:hover {
+            text-decoration: underline;
+        }
+
+        /* กล่องข้อมูล Key Info */
+        .info-card {
+            border: 1px solid rgba(34,197,94,.18);
+            border-radius: 16px;
+            padding: 14px;
+            background: rgba(20,83,45,.1);
+        }
+        .info-label {
+            font-size: 10px;
+            color: var(--muted2);
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+        .info-value {
+            font-size: 13px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.4;
+        }
+
+        /* Responsive */
         @media(max-width:720px){
             .corner{display:none}.page-login,.page-dashboard{padding:12px}
             .page-login .card{padding:30px 22px;border-radius:18px}
@@ -330,330 +372,409 @@
             .page-dashboard .logo-wrap{margin:0 auto}
             .page-dashboard .mini-line{margin-left:auto;margin-right:auto}
             .page-dashboard .title{font-size:24px;letter-spacing:3px}
-            .tabs{grid-template-columns:1fr 1fr 1fr}
-            .key-matrix,.method-grid,.cert-actions,.method-copy-grid{grid-template-columns:1fr}
-            .btn-row{grid-template-columns:1fr}
         }
         @media(max-width:420px){
             .page-login .card{padding:24px 16px}
             .page-login .logo-title{font-size:22px;letter-spacing:2px}
             .page-dashboard .card{padding:22px 14px}
             .page-dashboard .title{font-size:21px;letter-spacing:2px}
-            .tab{font-size:11px;min-height:43px}
         }
         @supports not (height:100svh){.page-login,.page-dashboard{min-height:100vh}}
     </style>
 </head>
-<body>
-<div class="top-line"></div>
-<div class="corner tl"><em>REAL</em> UDID<br>IPHONE ONLY</div>
-<div class="corner tr">PATO<br><em>ACCESS</em></div>
-<div class="corner bl">SAFARI<br><em>PROFILE</em></div>
-<div class="corner br">LICENSE<br><em>VERIFY</em></div>
+<body oncontextmenu="return false;">
 
-<!-- LOGIN PAGE -->
-<div class="page-login" id="loginPage">
-    <main class="wrap">
-        <section class="card">
-            <div class="logo-area">
-                <div class="logo-wrap" aria-hidden="true">
-                    <div class="logo-glow"></div><div class="logo-ring"></div><div class="logo-ring2"></div><div class="logo-ring3"></div><div class="logo-ring4"></div><div class="logo-scan"></div>
-                    <div class="logo-bracket tl"></div><div class="logo-bracket tr"></div><div class="logo-bracket bl"></div><div class="logo-bracket br"></div>
-                    <div class="logo-core"><svg viewBox="0 0 24 24"><path d="M12 2 4 5.5v6.3c0 5 3.4 9.6 8 10.2 4.6-.6 8-5.2 8-10.2V5.5L12 2Z"/><path d="M8.4 12.2 11 14.7l5.2-5.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-                </div>
-                <div class="logo-title display">PATO <span>PROXY</span></div>
-                <div class="logo-sub"><span class="en">iOS REAL UDID ACCESS</span><br><span class="th">ระบบยืนยันคีย์ด้วย UDID จริงของ iPhone</span></div>
-                <div class="logo-divider"></div>
-            </div>
+    <div class="top-line"></div>
+    <div class="corner tl">PATO<br><em>PROXY</em></div>
+    <div class="corner tr">SEC<br><em>v2.0</em></div>
+    <div class="corner bl">TH<br><em>LAND</em></div>
+    <div class="corner br">ENC<br><em>AES</em></div>
 
-            <div class="sec-label en">DEVICE VERIFY</div>
-            <div class="field" id="udidField">
-                <label class="field-label th" for="udidDisplay"><svg viewBox="0 0 24 24"><path d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M10 18h4"/><path d="M9 7h6"/></svg>UDID DEVICE / รหัสเครื่อง iPhone</label>
-                <input class="field-input" id="udidDisplay" readonly value="ยังไม่ได้รับ UDID" aria-label="UDID Device">
-                <input type="hidden" id="udidValue" value="">
-            </div>
+    <canvas id="lightningCanvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
 
-            <div class="btn-grid">
-                <button class="btn btn-green" id="btnProfile" onclick="downloadProfile()"><svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg><span class="th">รับ UDID จาก iPhone</span></button>
-            </div>
-
-            <div class="sec-label en">LICENSE ACCESS</div>
-            <div class="field">
-                <label class="field-label th" for="licenseKey"><svg viewBox="0 0 24 24"><path d="M15 7a5 5 0 1 0-3.8 8.5L12 16h2v2h2v2h2v-2h2v-2h-4l-1.2-1.2A5 5 0 0 0 15 7Z"/><circle cx="8" cy="12" r="1"/></svg>License Key / คีย์ของลูกค้า</label>
-                <input class="field-input" id="licenseKey" autocomplete="off" spellcheck="false" placeholder="กรอกคีย์ของคุณ" oninput="onKeyInput()">
-            </div>
-
-            <button class="btn btn-ok" id="btnActivate" disabled onclick="activateKey()"><svg viewBox="0 0 24 24"><path d="M12 2 4 5.5v6.3c0 5 3.4 9.6 8 10.2 4.6-.6 8-5.2 8-10.2V5.5L12 2Z"/><path d="M8.5 12.2 11 14.7l5-5"/></svg><span class="th" id="activateText">เข้าสู่ระบบ</span></button>
-
-            <div id="statusBox" class="status warn th">กดรับ UDID จาก iPhone ก่อน จากนั้นกรอกคีย์แล้วกดเข้าสู่ระบบ</div>
-
-            <div class="panel steps">
-                <div class="panel-title th">วิธีใช้งานสำหรับลูกค้า iPhone</div>
-                <ol class="th">
-                    <li>เปิดเว็บนี้ด้วย <b>Safari บน iPhone</b> เท่านั้น</li>
-                    <li>กด <b>รับ UDID จาก iPhone</b> แล้วติดตั้ง Profile ใน Settings</li>
-                    <li>เมื่อติดตั้งเสร็จ ระบบจะกลับมาหน้านี้และแสดง UDID ให้อัตโนมัติ</li>
-                    <li>กรอกคีย์ แล้วกด <b>เข้าสู่ระบบ</b></li>
-                </ol>
-            </div>
-
-            <div class="note th">หากเปลี่ยนเครื่อง ต้องติดต่อแอดมินหรือตัวแทนเพื่อ Reset UDID ก่อนใช้งานเครื่องใหม่</div>
-        </section>
-        <div class="foot en">PATO PROXY iOS • REAL UDID LOCK</div>
-    </main>
-</div>
-
-<!-- DASHBOARD PAGE -->
-<div class="page-dashboard" id="dashboardPage">
-    <main class="wrap">
-        <section class="card">
-            <div class="inner">
-                <header class="header">
-                    <div class="logo-wrap" aria-hidden="true">
-                        <div class="glow"></div><div class="ring"></div><div class="ring r2"></div>
-                        <div class="logo-core"><svg viewBox="0 0 24 24"><path d="M12 2 4 5.5v6.3c0 5 3.4 9.6 8 10.2 4.6-.6 8-5.2 8-10.2V5.5L12 2Z"/><path d="M8.4 12.2 11 14.7l5.2-5.2"/></svg></div>
-                    </div>
-                    <div>
-                        <div class="title display">PATO <span>PROXY</span></div>
-                        <div class="subtitle"><span class="en">USER DASHBOARD</span><br><span class="th">หน้าข้อมูลการใช้งานและตั้งค่า Proxy สำหรับ iPhone</span></div>
-                        <div class="mini-line"></div>
-                    </div>
-                </header>
-
-                <nav class="tabs" aria-label="Dashboard tabs">
-                    <button class="tab active" type="button" data-tab="function" onclick="switchTab('function')"><svg viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M7 12h10"/><path d="M10 17h4"/><path d="M12 3v3"/></svg><span class="th">ฟังชั่น</span></button>
-                    <button class="tab" type="button" data-tab="setup" onclick="switchTab('setup')"><svg viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/><path d="M8 5v4"/><path d="M16 10v4"/><path d="M11 15v4"/></svg><span class="en">PROXY SETUP</span></button>
-                    <button class="tab" type="button" data-tab="info" onclick="switchTab('info')"><svg viewBox="0 0 24 24"><path d="M12 2 4 5.5v6.3c0 5 3.4 9.6 8 10.2 4.6-.6 8-5.2 8-10.2V5.5L12 2Z"/><path d="M8 12h8"/></svg><span class="th">ข้อมูลคีย์</span></button>
-                </nav>
-
-                <!-- FUNCTION PANEL -->
-                <section id="panel-function" class="panel active">
-                    <div class="game-select-panel">
-                        <div class="game-select-head">
-                            <div><div class="game-select-title th">เลือกตัวเกม</div><div class="game-select-sub th">กรุณาเลือกตัวเกมให้ตรงกับตัวเกมที่ท่านใช้ปัจจุบัน</div></div>
-                            <span class="method-badge en">GAME MODE</span>
+    <!-- หน้าใส่คีย์ -->
+    <div class="page-login" id="loginPage">
+        <div class="wrap">
+            <div class="card">
+                <div class="logo-area">
+                    <div class="logo-wrap">
+                        <div class="logo-core">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
                         </div>
-                        <div class="game-grid single">
-                            <form method="post" action="#" class="game-card-form" onsubmit="return false;">
-                                <button type="submit" class="game-card active">
-                                    <div class="game-icon"><svg viewBox="0 0 24 24"><path d="M6 8h12a3 3 0 0 1 3 3v3a3 3 0 0 1-3 3h-1.8l-2-2.2H9.8L7.8 17H6a3 3 0 0 1-3-3v-3a3 3 0 0 1 3-3Z"/><path d="M8 12h4"/><path d="M10 10v4"/><path d="M16.5 11.5h.01"/><path d="M18.5 13.5h.01"/></svg></div>
-                                    <div class="game-info">
-                                        <div class="game-name en">FF NORMAL</div>
-                                        <div class="game-desc th">สำหรับ Free Fire เวอร์ชันปกติ</div>
-                                        <div class="game-state ok saved th"><span class="state-icon"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><div>บันทึกข้อมูล FF NORMAL แล้ว</div></div>
+                        <div class="logo-ring"></div>
+                        <div class="logo-ring2"></div>
+                        <div class="logo-ring3"></div>
+                        <div class="logo-ring4"></div>
+                        <div class="logo-scan"></div>
+                        <div class="logo-bracket tl"></div><div class="logo-bracket tr"></div><div class="logo-bracket bl"></div><div class="logo-bracket br"></div>
+                        <div class="logo-glow"></div>
+                    </div>
+                    <div class="logo-title">PATO<span>-</span>PROXY</div>
+                    <div class="logo-sub">THUNDER PROTECTION</div>
+                    <div class="logo-divider"></div>
+                </div>
+
+                <div class="sec-label">ACCESS KEY</div>
+                <div class="field">
+                    <div class="field-label">
+                        <svg viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+                        KEY
+                    </div>
+                    <input class="field-input" type="password" id="keyInput" placeholder="ป้อนรหัสผ่าน..." autocomplete="off">
+                </div>
+                <div class="btn-grid">
+                    <button class="btn btn-green" id="loginBtn">
+                        <svg width="17" height="17" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13 12H3"/></svg>
+                        ยืนยัน
+                    </button>
+                </div>
+                <div id="loginStatus" class="status err hide"></div>
+                <div class="foot">ENCRYPTED CONNECTION</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- หน้า Dashboard -->
+    <div class="page-dashboard" id="dashboardPage">
+        <div class="wrap">
+            <div class="card">
+                <div class="inner">
+                    <div class="header">
+                        <div class="logo-wrap">
+                            <div class="logo-core">
+                                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            </div>
+                            <div class="ring"></div>
+                            <div class="ring r2"></div>
+                            <div class="glow"></div>
+                        </div>
+                        <div>
+                            <div class="title">PATO<span>-</span>PROXY</div>
+                            <div class="subtitle">ระบบ Proxy ยิงตัวโดนหัว • <span class="en">PATO-PROXY</span></div>
+                            <div class="mini-line"></div>
+                        </div>
+                    </div>
+
+                    <div class="tabs">
+                        <button class="tab active" data-tab="protection">
+                            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            Protection
+                        </button>
+                        <button class="tab" data-tab="info">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                            Key Info
+                        </button>
+                    </div>
+
+                    <!-- Panel Protection -->
+                    <div class="panel active" id="panel-protection">
+                        <!-- คู่มือการใช้งาน -->
+                        <div class="guide-box">
+                            <h4>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                </svg>
+                                คู่มือ Pato Proxy
+                            </h4>
+                            <p style="margin-bottom:8px;">• <strong>ยิงตัวโดนหัว Proxy ios</strong></p>
+                            <p style="margin-bottom:8px;">• <strong>แอพที่ต้องใช้</strong>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin:0 2px;">
+                                    <path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06z"></path>
+                                </svg>
+                                <br>
+                                <a href="https://apps.apple.com/th/app/potatso/id1239860606?l=th" target="_blank">Potatso บน App Store</a>
+                            </p>
+                            <p>• <strong>ลิ้งไฟล์ Cert CA</strong>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin:0 2px;">
+                                    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                                    <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                                    <polyline points="7 3 7 8 15 8"></polyline>
+                                </svg>
+                                <br>
+                                <a href="https://www.mediafire.com/file/8pjdoyyxdjl1p6c/PATO-PROXY.pem/file" target="_blank">ดาวน์โหลด PATO-PROXY.pem</a>
+                            </p>
+                        </div>
+
+                        <!-- เมนู Protection เดิม -->
+                        <div class="menu-list">
+                            <div class="row">
+                                <div class="label-group">
+                                    <div class="icon-box">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>
                                     </div>
-                                </button>
-                            </form>
-                        </div>
-                        <div class="game-important-advice th">
-                            <div class="game-important-advice-title">คำแนะนำสำคัญ !</div>
-                            <div class="game-important-advice-text">หลังจากที่เลือกตัวเกมสำหรับคีย์นี้แล้ว กรุณาอย่าลบเกมหรือโหลดเกมใหม่ เพราะจะทำให้ฟังก์ชันไม่ทำงาน ( และต้องใช้คีย์ใหม่เท่านั้น ) </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- INFO PANEL -->
-                <section id="panel-info" class="panel">
-                    <div class="section-caption"><div class="cap-title en">KEY INFORMATION</div><div class="cap-line"></div><span class="status-pill ok">ใช้งานได้</span></div>
-                    <div class="key-layout">
-                        <div class="key-matrix">
-                            <article class="corner-card"><div class="corner-head"><div class="corner-icon"><svg viewBox="0 0 24 24"><path d="M12 2 4 5.5v6.3c0 5 3.4 9.6 8 10.2 4.6-.6 8-5.2 8-10.2V5.5L12 2Z"/><path d="M8.5 12.2 11 14.7l5-5"/></svg></div><div class="corner-no en">01</div></div><div class="label en">STATUS</div><div class="value th status-value ok">ใช้งานได้</div></article>
-                            <article class="corner-card"><div class="corner-head"><div class="corner-icon"><svg viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/><path d="M8 4v4"/><path d="M16 10v4"/><path d="M11 16v4"/></svg></div><div class="corner-no en">02</div></div><div class="label en">FUNCTION</div><div class="value th">ขยายดาเมจหัว</div></article>
-                            <article class="corner-card"><div class="corner-head"><div class="corner-icon"><svg viewBox="0 0 24 24"><path d="M7 2v4"/><path d="M17 2v4"/><path d="M3.5 9h17"/><path d="M5 4h14a2 2 0 0 1 2 2v15H3V6a2 2 0 0 1 2-2Z"/></svg></div><div class="corner-no en">03</div></div><div class="label en">EXPIRE DATE</div><div class="value mono">2026-05-23 17:18:25</div></article>
-                            <article class="corner-card"><div class="corner-head"><div class="corner-icon"><svg viewBox="0 0 24 24"><path d="M12 6v6l4 2"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg></div><div class="corner-no en">04</div></div><div class="label en">DAYS LEFT</div><div class="value th">1 วัน</div></article>
-                        </div>
-                        <div class="key-split">
-                            <article class="wide-card"><div class="label en">LICENSE KEY</div><div class="value mono">PATO-OEQIDW1238D7S61</div></article>
-                            <article class="wide-card"><div class="label en">PORT</div><div class="value mono">25539</div></article>
-                            <article class="wide-card"><div class="label en">DEVICE ID / UDID</div><div class="value mono">00008122XXXBB801C</div></article>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- SETUP PANEL -->
-                <section id="panel-setup" class="panel">
-                    <div class="setup-block-title"><span class="en">STEP 1 • CERTIFICATE</span><span></span></div>
-                    <div class="cert-first">
-                        <div class="cert-head">
-                            <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M12 2 4 5.5v6.4c0 5 3.4 9.6 8 10.1 4.6-.5 8-5.1 8-10.1V5.5L12 2Z"/><path d="M8.5 12.3 11 14.8l5-5.1"/></svg></div>
-                            <div><div class="cert-title th">ติดตั้งใบรับรอง CA ก่อนใช้งาน</div><div class="cert-desc th">ใบรับรองนี้จำเป็นสำหรับการใช้งานทั้งแบบ WiFi และ APP Proxy Pin ระบบจะตรวจสอบคีย์และ UDID ก่อนปล่อยใบรับรอง กรุณาติดตั้งให้เรียบร้อยแล้วกลับมาหน้านี้เพื่อเลือกวิธีใช้งาน</div></div>
-                        </div>
-                        <div class="cert-actions">
-                            <a class="btn btn-green" href="#"><svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg><span class="th">ติดตั้งใบรับรอง CA</span></a>
-                            <button class="btn btn-dark" type="button" onclick="showMethodArea()"><span class="th">ติดตั้งเรียบร้อยแล้ว</span></button>
-                        </div>
-                    </div>
-
-                    <div class="method-area active" id="methodArea">
-                        <div class="setup-block-title"><span class="en">STEP 2 • SELECT METHOD</span><span></span></div>
-                        <div class="method-grid" id="methodGrid">
-                            <article class="method-card" data-method="wifi" onclick="selectMethod('wifi')">
-                                <div class="method-top"><div class="method-no">01</div><div class="method-icon"><svg viewBox="0 0 24 24"><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 16a5 5 0 0 1 7 0"/><path d="M12 19h.01"/></svg></div></div>
-                                <div class="method-title th">ใช้งานผ่าน WIFI</div>
-                                <div class="method-text th">ต้องใช้ WiFi เท่านั้นถึงจะสามารถใช้งานด้วยวิธีนี้ได้และวิธีนี้เป็นวิธีหลบและกันเช็ค 100%</div>
-                                <div class="method-action th">เลือกวิธี WIFI</div>
-                            </article>
-                            <article class="method-card" data-method="pin" onclick="selectMethod('pin')">
-                                <div class="method-top"><div class="method-no">02</div><div class="method-icon"><svg viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/><path d="M7 7v10"/><path d="M17 7v10"/></svg></div></div>
-                                <div class="method-title th">ใช้งานผ่าน APP PROXY PIN</div>
-                                <div class="method-text th">สามารถใช้ WiFi หรืออินเทอร์เน็ตในการใช้งานก็ได้วิธีนี้เหมาะสำหรับผู้ใช้อินเทอร์เน็ตสามารถหลบและการเช็คได้ 80% (อยู่ที่วิธีของเรา)</div>
-                                <div class="method-action th">เลือกวิธี PROXY PIN</div>
-                            </article>
-                        </div>
-
-                        <div class="method-detail" id="wifiDetail">
-                            <div class="method-detail-head"><div class="method-detail-title th">ตั้งค่าใช้งานผ่าน WiFi</div></div>
-                            <div class="method-copy-grid">
-                                <article class="copy-card simple inline-copy"><div class="copy-label en">SERVER IP</div><div class="copy-row"><div class="copy-value" id="wifiServerIpText">82.26.104.142</div><button class="copy-inline-btn th" type="button" onclick="copyValue('wifiServerIpText', this)">คัดลอก</button></div></article>
-                                <article class="copy-card simple inline-copy"><div class="copy-label en">PORT</div><div class="copy-row"><div class="copy-value" id="wifiPortText">25539</div><button class="copy-inline-btn th" type="button" onclick="copyValue('wifiPortText', this)">คัดลอก</button></div></article>
+                                    <span>ยิงตัวโดนหัว</span>
+                                </div>
+                                <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+                            </div>
+                            <div class="row">
+                                <div class="label-group">
+                                    <div class="icon-box">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                    </div>
+                                    <span>ระบบกันแบน</span>
+                                </div>
+                                <label class="switch"><input type="checkbox"><span class="slider"></span></label>
+                            </div>
+                            <div class="row">
+                                <div class="label-group">
+                                    <div class="icon-box">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                                    </div>
+                                    <span>กันรหัสติดดำ</span>
+                                </div>
+                                <label class="switch"><input type="checkbox"><span class="slider"></span></label>
                             </div>
                         </div>
 
-                        <div class="method-detail" id="pinDetail">
-                            <div class="method-detail-head"><div class="method-detail-title th">ตั้งค่าใช้งานผ่าน APP Proxy Pin</div><div class="method-badge en">PROXY PIN</div></div>
-                            <div class="method-copy-grid">
-                                <article class="copy-card simple inline-copy"><div class="copy-label en">SERVER IP</div><div class="copy-row"><div class="copy-value" id="pinServerIpText">82.26.104.142</div><button class="copy-inline-btn th" type="button" onclick="copyValue('pinServerIpText', this)">คัดลอก</button></div></article>
-                                <article class="copy-card simple inline-copy"><div class="copy-label en">PORT</div><div class="copy-row"><div class="copy-value" id="pinPortText">25539</div><button class="copy-inline-btn th" type="button" onclick="copyValue('pinPortText', this)">คัดลอก</button></div></article>
+                        <!-- กล่องคัดลอก 3 กล่อง -->
+                        <div class="copy-box">
+                            <div class="label-text">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                                </svg>
+                                Server IP<br><span style="font-size:10px;color:#aaa;">ใส่ใน Potatso</span>
+                            </div>
+                            <span class="value" id="serverIP">147.50.253.235</span>
+                            <button class="copy-btn-small" onclick="copyText('serverIP', this)">คัดลอก</button>
+                        </div>
+                        <div class="copy-box">
+                            <div class="label-text">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <polyline points="19 12 12 19 5 12"></polyline>
+                                </svg>
+                                Port<br><span style="font-size:10px;color:#aaa;">ใส่ใน Potatso</span>
+                            </div>
+                            <span class="value" id="portNumber">9992</span>
+                            <button class="copy-btn-small" onclick="copyText('portNumber', this)">คัดลอก</button>
+                        </div>
+                        <div class="copy-box">
+                            <div class="label-text">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg>
+                                ชื่อ<br><span style="font-size:10px;color:#aaa;">ใส่ใน Potatso</span>
+                            </div>
+                            <span class="value" id="proxyName">PATO-PROXY</span>
+                            <button class="copy-btn-small" onclick="copyText('proxyName', this)">คัดลอก</button>
+                        </div>
+
+                        <!-- ปุ่ม Activate System -->
+                        <a href="potatso://" class="btn-inject" id="mainBtn" style="margin-top:10px;">Activate System</a>
+                        <div class="status-text">ENCRYPTED CONNECTION : <span style="color:#22c55e">ON</span></div>
+                    </div>
+
+                    <!-- Panel Key Info (ปรับปรุงใหม่) -->
+                    <div class="panel" id="panel-info">
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:10px;">
+                            <!-- KEY (เดิม) -->
+                            <div class="info-card">
+                                <div class="info-label">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+                                    KEY
+                                </div>
+                                <div class="info-value">pato</div>
+                            </div>
+                            <!-- STATUS (เดิม) -->
+                            <div class="info-card">
+                                <div class="info-label">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                                    STATUS
+                                </div>
+                                <div class="info-value" style="color:#22c55e;">ACTIVE</div>
+                            </div>
+
+                            <!-- ใหม่ 1: HEADSHOT AIM -->
+                            <div class="info-card">
+                                <div class="info-label">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                                    HEADSHOT AIM
+                                </div>
+                                <div class="info-value" style="color:#86efac;">Active (Auto)</div>
+                            </div>
+
+                            <!-- ใหม่ 2: ANTI-BAN -->
+                            <div class="info-card">
+                                <div class="info-label">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                    ANTI-BAN
+                                </div>
+                                <div class="info-value" style="color:#86efac;">Encrypted</div>
+                            </div>
+
+                            <!-- ใหม่ 3: SERVER -->
+                            <div class="info-card">
+                                <div class="info-label">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                                    SERVER
+                                </div>
+                                <div class="info-value">Thailand</div>
+                            </div>
+
+                            <!-- ใหม่ 4: SUPPORTED GAME -->
+                            <div class="info-card">
+                                <div class="info-label">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="12" height="16" rx="2"/><line x1="10" y1="10" x2="14" y2="10"/><line x1="12" y1="8" x2="12" y2="12"/></svg>
+                                    SUPPORTED GAME
+                                </div>
+                                <div class="info-value">Free Fire Max</div>
+                            </div>
+
+                            <!-- ใหม่ 5: USAGE (กินเต็มแถว) -->
+                            <div class="info-card" style="grid-column: span 2;">
+                                <div class="info-label">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                                    USAGE
+                                </div>
+                                <div class="info-value" style="font-size:11px; line-height:1.6;">
+                                    เปิด Potatso ก่อนเข้าเกม ตรวจสอบว่าเชื่อมต่อ Proxy แล้ว ระบบจะทำงานอัตโนมัติเมื่อเข้าเกม Free Fire Max
+                                </div>
                             </div>
                         </div>
+                        <div class="note">คีย์นี้ใช้สำหรับเข้าใช้งาน Proxy ยิงตัวโดนหัวของ PATO-PROXY</div>
                     </div>
-                </section>
 
-                <div class="btn-row" style="grid-template-columns:1fr">
-                    <a class="btn btn-dark" href="#" onclick="logout()"><svg viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg><span class="th">กลับหน้าแรก</span></a>
+                    <div class="foot">PATO-PROXY • SECURE CHANNEL</div>
                 </div>
             </div>
-        </section>
-        <div class="foot en">PATO PROXY iOS • DEVICE ID DASHBOARD</div>
-    </main>
-</div>
+        </div>
+    </div>
 
-<script>
-    // ========== GLOBAL HELPERS ==========
-    const VALID_KEY = 'PATO-OEQIDW1238D7S61';
-    function normalizeKey(v){ return String(v||'').trim().replace(/\s+/g,''); }
-    function showStatus(type,msg){ const el=document.getElementById('statusBox'); if(el){ el.className='status '+type+' th'; el.innerHTML=msg; } }
+    <script>
+        (function() {
+            const loginPage = document.getElementById('loginPage');
+            const dashboardPage = document.getElementById('dashboardPage');
+            const keyInput = document.getElementById('keyInput');
+            const loginBtn = document.getElementById('loginBtn');
+            const loginStatus = document.getElementById('loginStatus');
+            const mainBtn = document.getElementById('mainBtn');
 
-    // ========== LOGIN LOGIC ==========
-    const IS_IOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-    const IS_SAFARI = /^((?!chrome|android|crios|fxios|edgios).)*safari/i.test(navigator.userAgent);
-    let udidInfo = null;
-
-    function updateButton(){
-        const key = normalizeKey(document.getElementById('licenseKey').value);
-        // เปิดปุ่มเมื่อคีย์ไม่ว่างและมี UDID (หรือจะยอมให้กดเลยก็ได้ แต่เราจะบังคับให้มี UDID ก่อนตาม UI เดิม)
-        const ready = !!(key.length >= 5 && (udidInfo && udidInfo.udid));
-        document.getElementById('btnActivate').disabled = !ready;
-    }
-
-    function onKeyInput(){ updateButton(); }
-
-    function setDevice(info, notify=true){
-        udidInfo = info || null;
-        if(udidInfo && udidInfo.udid){
-            document.getElementById('udidField').classList.add('udid-ready');
-            document.getElementById('udidValue').value = udidInfo.udid;
-            document.getElementById('udidDisplay').value = udidInfo.udid.slice(0,8)+'XXX'+udidInfo.udid.slice(-6);
-            if(notify) showStatus('ok','รับ UDID จริงของ iPhone สำเร็จแล้ว กรอกคีย์แล้วกดเข้าสู่ระบบได้เลย');
-        } else {
-            document.getElementById('udidField').classList.remove('udid-ready');
-            document.getElementById('udidValue').value = '';
-            document.getElementById('udidDisplay').value = 'ยังไม่ได้รับ UDID';
-        }
-        updateButton();
-    }
-
-    function downloadProfile(){
-        if(!IS_IOS || !IS_SAFARI){ showStatus('err','กรุณาเปิดหน้านี้ด้วย Safari บน iPhone เท่านั้น'); return; }
-        showStatus('warn','กำลังเปิดไฟล์ Profile...');
-        // จำลองการได้รับ UDID (เพื่อให้สามารถกดเข้าสู่ระบบได้)
-        setTimeout(() => {
-            const fakeUdid = '00008122' + Math.random().toString(16).substr(2,6).toUpperCase() + 'BB801C';
-            setDevice({udid: fakeUdid}, true);
-        }, 1000);
-    }
-
-    function activateKey(){
-        const key = normalizeKey(document.getElementById('licenseKey').value);
-        if(key !== VALID_KEY){ showStatus('err','คีย์ไม่ถูกต้อง'); return; }
-        if(!udidInfo || !udidInfo.udid){ showStatus('err','กรุณารับ UDID ก่อน'); return; }
-        // ซ่อน login แสดง dashboard
-        document.getElementById('loginPage').style.display = 'none';
-        document.getElementById('dashboardPage').classList.add('active');
-    }
-
-    function logout(){
-        document.getElementById('dashboardPage').classList.remove('active');
-        document.getElementById('loginPage').style.display = 'flex';
-        document.getElementById('licenseKey').value = '';
-        udidInfo = null;
-        setDevice(null, false);
-        showStatus('warn','กดรับ UDID จาก iPhone ก่อน จากนั้นกรอกคีย์แล้วกดเข้าสู่ระบบ');
-    }
-
-    // ========== DASHBOARD FUNCTIONS ==========
-    function switchTab(name){
-        document.querySelectorAll('.page-dashboard .tab').forEach(btn => btn.classList.toggle('active', btn.dataset.tab === name));
-        document.querySelectorAll('.page-dashboard .panel').forEach(panel => panel.classList.remove('active'));
-        const target = document.getElementById('panel-'+name);
-        if(target) target.classList.add('active');
-    }
-
-    function showMethodArea(){
-        const area = document.getElementById('methodArea');
-        if(area) area.classList.add('active');
-        localStorage.setItem('pato_ca_installed','1');
-    }
-
-    function selectMethod(method){
-        const wifi = document.getElementById('wifiDetail');
-        const pin = document.getElementById('pinDetail');
-        if(wifi) wifi.classList.toggle('active', method==='wifi');
-        if(pin) pin.classList.toggle('active', method==='pin');
-        document.querySelectorAll('.method-card').forEach(card => {
-            const isSelected = card.dataset.method === method;
-            card.classList.toggle('active', isSelected);
-            card.classList.toggle('hidden', !isSelected);
-            const action = card.querySelector('.method-action');
-            if(action) action.textContent = isSelected ? 'เลือกแล้ว' : (card.dataset.method==='wifi'?'เลือกวิธี WIFI':'เลือกวิธี PROXY PIN');
-        });
-        const detail = method==='wifi' ? wifi : pin;
-        if(detail) detail.scrollIntoView({behavior:'smooth', block:'nearest'});
-    }
-
-    function resetMethod(){
-        document.querySelectorAll('.method-card').forEach(card => {
-            card.classList.remove('active','hidden');
-            const action = card.querySelector('.method-action');
-            if(action) action.textContent = card.dataset.method==='wifi'?'เลือกวิธี WIFI':'เลือกวิธี PROXY PIN';
-        });
-        document.getElementById('wifiDetail').classList.remove('active');
-        document.getElementById('pinDetail').classList.remove('active');
-    }
-
-    async function copyValue(id, btn){
-        const el = document.getElementById(id);
-        if(!el) return;
-        const text = el.getAttribute('data-copy') || el.textContent || '';
-        try{
-            await navigator.clipboard.writeText(text.trim());
-            if(btn){
-                const old = btn.textContent;
-                btn.textContent = 'คัดลอกแล้ว';
-                btn.classList.add('done');
-                setTimeout(() => { btn.textContent = old; btn.classList.remove('done'); }, 1200);
+            if (localStorage.getItem('pato_logged_in') === 'true') {
+                showDashboard();
             }
-        } catch(e){ prompt('Copy', text.trim()); }
-    }
 
-    // initial load
-    (function(){
-        // ตรวจสอบว่ามีการติดตั้ง CA แล้วหรือไม่
-        if(localStorage.getItem('pato_ca_installed')==='1'){
-            showMethodArea();
+            function showDashboard() {
+                loginPage.style.display = 'none';
+                dashboardPage.classList.add('active');
+            }
+
+            loginBtn.addEventListener('click', function() {
+                const key = keyInput.value.trim();
+                if (key === 'pato') {
+                    localStorage.setItem('pato_logged_in', 'true');
+                    loginStatus.classList.add('hide');
+                    showDashboard();
+                } else {
+                    loginStatus.classList.remove('hide');
+                    loginStatus.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> รหัสผ่านไม่ถูกต้อง โปรดลองอีกครั้ง';
+                    keyInput.value = '';
+                    keyInput.focus();
+                }
+            });
+
+            keyInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') loginBtn.click();
+            });
+
+            const tabs = document.querySelectorAll('.tab');
+            const panels = document.querySelectorAll('.panel');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const target = this.getAttribute('data-tab');
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    panels.forEach(p => p.classList.remove('active'));
+                    document.getElementById('panel-' + target).classList.add('active');
+                });
+            });
+
+            if (mainBtn) {
+                mainBtn.addEventListener('click', function(e) {
+                    this.textContent = 'System Loading...';
+                    setTimeout(() => {
+                        this.textContent = 'System Active';
+                        this.style.background = '#22c55e';
+                    }, 2000);
+                });
+            }
+
+            const canvas = document.getElementById('lightningCanvas');
+            const ctx = canvas.getContext('2d');
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            function drawLightning() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                let x = Math.random() * canvas.width;
+                let y = 0;
+                ctx.strokeStyle = '#22c55e';
+                ctx.lineWidth = 2;
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = '#22c55e';
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                while (y < canvas.height) {
+                    x += (Math.random() - 0.5) * 50;
+                    y += Math.random() * 30;
+                    ctx.lineTo(x, y);
+                }
+                ctx.stroke();
+                setTimeout(() => ctx.clearRect(0, 0, canvas.width, canvas.height), 100);
+            }
+
+            function thunderLoop() {
+                setTimeout(() => {
+                    drawLightning();
+                    thunderLoop();
+                }, Math.random() * 3000 + 1000);
+            }
+            thunderLoop();
+
+            document.addEventListener('contextmenu', e => e.preventDefault());
+            document.onkeydown = function(e) {
+                if (
+                    e.keyCode === 123 ||
+                    (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) ||
+                    (e.ctrlKey && e.keyCode === 85)
+                ) return false;
+            };
+            setInterval(function() {
+                const startTime = performance.now();
+                debugger;
+                const endTime = performance.now();
+                if (endTime - startTime > 100) {
+                    document.body.innerHTML = '<div style="background:#000; color:#22c55e; height:100vh; display:flex; align-items:center; justify-content:center; font-family:sans-serif; text-align:center;"><h1>SECURITY BREACH DETECTED</h1></div>';
+                }
+            }, 1000);
+        })();
+
+        function copyText(elementId, btn) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = 'คัดลอกแล้ว';
+                btn.style.background = '#22c55e';
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.background = '';
+                }, 1500);
+            }).catch(err => {
+                alert('คัดลอกไม่สำเร็จ');
+            });
         }
-        updateButton();
-    })();
-</script>
+    </script>
 </body>
 </html>
