@@ -8,14 +8,12 @@
     <!-- PWA Icons & Meta -->
     <link rel="apple-touch-icon" href="https://i.postimg.cc/J00FQ5Bh/file-00000000cb547206a27ed0c408e18cc2.png">
     <link rel="apple-touch-icon-precomposed" href="https://i.postimg.cc/J00FQ5Bh/file-00000000cb547206a27ed0c408e18cc2.png">
-    <link rel="shortcut icon" type="image/png" href="https://i.postimg.cc/J00FQ5Bh/file-00000000cb547206a27ed0c408e18cc2.png">
     <link rel="icon" type="image/png" href="https://i.postimg.cc/J00FQ5Bh/file-00000000cb547206a27ed0c408e18cc2.png">
     <meta property="og:image" content="https://i.postimg.cc/J00FQ5Bh/file-00000000cb547206a27ed0c408e18cc2.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="PATO-PROXY">
     <meta name="theme-color" content="#16a34a">
-    <!-- Manifest จะถูกสร้างด้วย JavaScript -->
 
     <!-- ฟอนต์ไซเบอร์ -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -374,7 +372,7 @@
                         </div>
                         <div>
                             <div class="title">PATO<span>-</span>PROXY</div>
-                            <div class="subtitle">ระบบยิงตัวโดนหัวผ่าน Proxy • <span class="en">PATO PROXY</span></div>
+                            <div class="subtitle">ระบบป้องกันระดับสูง • <span class="en">THUNDER PROTECTION</span></div>
                             <div class="mini-line"></div>
                         </div>
                     </div>
@@ -473,7 +471,7 @@
                             </div>
                             <div class="info-card">
                                 <div class="info-label"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg> SERVER</div>
-                                <div class="info-value">Thailand</div>
+                                <div class="info-value">Singapore</div>
                             </div>
                             <div class="info-card">
                                 <div class="info-label"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="12" height="16" rx="2"/><line x1="10" y1="10" x2="14" y2="10"/><line x1="12" y1="8" x2="12" y2="12"/></svg> SUPPORTED GAME</div>
@@ -481,10 +479,10 @@
                             </div>
                             <div class="info-card" style="grid-column: span 2;">
                                 <div class="info-label"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg> USAGE</div>
-                                <div class="info-value" style="font-size:11px; line-height:1.6;">เปิด Potatso ก่อนเข้าเกม ตรวจสอบว่าเชื่อมต่อ Proxy แล้ว ระบบจะทำงานอัตโนมัติเมื่อเข้าเกม Free Fire Max</div>
+                                <div class="info-value" style="font-size:11px; line-height:1.6;">เปิด Potatso ก่อนเข้าเกม ตรวจสอบว่าเชื่อมต่อ VPN แล้ว ระบบจะทำงานอัตโนมัติเมื่อเข้าเกม Free Fire Max</div>
                             </div>
                         </div>
-                        <div class="note">คีย์นี้ใช้สำหรับเข้าใช้งานระบบยิงตัวโดนหัวของ PATO-PROXY</div>
+                        <div class="note">คีย์นี้ใช้สำหรับเข้าใช้งานระบบป้องกันของ PATO-PROXY</div>
                     </div>
 
                     <div class="foot">PATO-PROXY • SECURE CHANNEL</div>
@@ -494,8 +492,9 @@
     </div>
 
     <script>
-        // สร้าง Manifest แบบ Inline และเพิ่มลงใน <head>
+        // ========== MANIFEST + SERVICE WORKER (PWA) ==========
         (function() {
+            // Manifest Inline
             const manifest = {
                 name: "PATO-PROXY",
                 short_name: "PATO",
@@ -515,9 +514,33 @@
             link.rel = 'manifest';
             link.href = manifestURL;
             document.head.appendChild(link);
+
+            // Service Worker Inline (จำเป็นสำหรับบางเบราว์เซอร์)
+            const swCode = `
+                self.addEventListener('install', event => {
+                    self.skipWaiting();
+                });
+                self.addEventListener('activate', event => {
+                    event.waitUntil(clients.claim());
+                });
+                self.addEventListener('fetch', event => {
+                    event.respondWith(fetch(event.request));
+                });
+            `;
+            const swBlob = new Blob([swCode], { type: 'application/javascript' });
+            const swURL = URL.createObjectURL(swBlob);
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register(swURL).then(reg => {
+                        console.log('SW registered!', reg);
+                    }).catch(err => {
+                        console.error('SW registration failed', err);
+                    });
+                });
+            }
         })();
 
-        // ระบบคีย์และอื่น ๆ
+        // ========== ระบบคีย์และฟังก์ชันอื่น ๆ ==========
         (function() {
             const loginPage = document.getElementById('loginPage');
             const dashboardPage = document.getElementById('dashboardPage');
@@ -575,7 +598,6 @@
                 });
             }
 
-            // Canvas สายฟ้า
             const canvas = document.getElementById('lightningCanvas');
             const ctx = canvas.getContext('2d');
             function resizeCanvas() {
